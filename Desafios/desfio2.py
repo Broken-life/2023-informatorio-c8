@@ -1,2 +1,16 @@
-userdata = input("Ingrese su información personal, incluyendo: su nombre completo, edad, estatura, peso, dirección y número de teléfono, Separados por comas: ").split(",") 
-print("La información ingresada es la siguiente: \n Nombre completo: ", userdata[0], "\n Edad: ", userdata[1], "\n Estatura: ", str(userdata[2]) + "cm", "\n Peso: ", str(userdata[3]) + "kg", "\n Dirección: ", userdata[4], "\n Número de teléfono: ", userdata[5], "\n")
+nombre = input("Ingrese su nombre completo: ")
+edad = int(input("Ingrese su edad: "))
+estatura = int(input("Ingrese su  estatura: "))
+peso = int(input("Ingrese su peso: "))
+direccion = input("Ingrese su dirección: ")
+numero_telefono = input("Ingrese su número de teléfono: ")
+
+print(f'''
+ La información ingresada es la siguiente:
+  Nombre completo: {nombre}
+  Edad: {edad}
+  Estatura: {estatura} cm
+  Peso: {peso} kg
+  Dirección: {direccion}
+  Número de teléfono: {numero_telefono}
+''')
