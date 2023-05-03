@@ -1,6 +1,6 @@
 nombre = input("Ingrese su nombre completo: ")
 edad = int(input("Ingrese su edad: "))
-estatura = int(input("Ingrese su  estatura: "))
+estatura = float(input("Ingrese su  estatura: "))
 peso = int(input("Ingrese su peso: "))
 direccion = input("Ingrese su dirección: ")
 numero_telefono = input("Ingrese su número de teléfono: ")
