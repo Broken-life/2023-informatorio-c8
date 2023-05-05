@@ -1,11 +1,17 @@
 frase = str(input("Ingrese una frase, palabra, o texto:").lower()) #pasamos todo a minuscula
 
-#metemos las letras en una lista
-letras = []
+#eliminar los signos de puntuacion de la frase con un map, para dejar solo letra
+# signos = [",", ".", ";", ":", "¿", "?", "¡", "!", "(", ")", '"', "'"]
+# frase2 = list(map(lambda x: x if x not in signos else " ", frase))
+# frase2 = "".join(frase2)
+# print(frase)
 
-letras.append(input("Ingrese la una letra: "))
-letras.append(input("Ingrese la otra letra: "))
-letras.append(input("ingrese la ultima letra: "))
+letra_1 = str(input("Ingrese una letra: "))
+letra_2 = str(input("Ingrese otra letra: "))
+letra_3 = str(input("Ingrese otra letra: "))
+
+#metemos las letras en una lista
+letras = [letra_1.lower(), letra_2.lower(), letra_3.lower()]
 
 #cantidad de veces que aparece cada letra elegida en el texto ingresado
 for letra in letras:
@@ -27,3 +33,8 @@ if "python" in frase:
     print("La palabra python se encuentra en el texto ingresado")
 else:
     print("La palabra python no se encuentra en el texto ingresado")
+
+## con un diccionario
+# options = {True: "se encuentra en el texto", False: "no se encuentra en el texto"}
+# python_in_text = "python" in frase
+# print(f"La palabra python {options[python_in_text]}")
