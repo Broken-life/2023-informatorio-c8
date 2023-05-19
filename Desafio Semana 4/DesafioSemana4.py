@@ -43,7 +43,7 @@ if opcion == 1:
                 'estado': input("Ingrese el estado (Disponible/Reservado/Vendido): ").capitalize()}
     if validar_inmueble(inmueble):
         lista_total_inmuebles.append(inmueble)
-        print("El inmueble se agregó correctamente")
+        print(f"El inmueble se agregó correctamente a la base de datos: {lista_total_inmuebles}")
     else:
         print("El inmueble no cumple con las reglas de validación")
 
@@ -116,6 +116,6 @@ elif opcion == 5:
     else:
         print("Los inmuebles disponibles para el presupuesto ingresado son: ")
         for inmueble in inmuebles_disponibles_cliente:
-            print(f"{inmueble} Con un valor de ${inmueble[1]}")
+            print(f"{inmueble[0]} Con un valor de ${inmueble[1]}")
 
 print(f"Gracias por utilizar el sistema {empleado}, hasta pronto! :)")
