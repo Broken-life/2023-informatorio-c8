@@ -96,23 +96,26 @@ elif opcion == 4:
 elif opcion == 5:
     presupuesto_disponible = float(input(f"{empleado}, ingrese el presupuesto disponible que posee el cliente: "))
 
-def precios_inmuebles(lista_total_inmuebles, presupuesto_disponible):
-    year = date.today().year
-    inmuebles_disponibles_cliente = []
-    for inmueble in lista_total_inmuebles:
-        if inmueble['estado'] == 'Disponible' or inmueble['estado'] == 'Reservado':
-            if inmueble['zona'] == 'A':
-                precio = (inmueble['metros'] * 100 + inmueble['habitaciones'] * 500 + inmueble['garaje'] * 1500) * (1-(year - inmueble['año'])/100)
-            elif inmueble['zona'] == 'B':
-                precio = (inmueble['metros'] * 100 + inmueble['habitaciones'] * 500 + inmueble['garaje'] * 1500) * (1-(year - inmueble['año'])/100) * 1.5
-            elif inmueble['zona'] == 'C':
-                precio = (inmueble['metros'] * 100 + inmueble['habitaciones'] * 500 + inmueble['garaje'] * 1500) * (1-(year - inmueble['año'])/100) * 2
-            if precio <= presupuesto_disponible:
-                inmuebles_disponibles_cliente.append((inmueble, precio))
-    return inmuebles_disponibles_cliente
+    def precios_inmuebles(lista_total_inmuebles, presupuesto_disponible):
+        year = date.today().year
+        inmuebles_disponibles_cliente = []
+        for inmueble in lista_total_inmuebles:
+            if inmueble['estado'] == 'Disponible' or inmueble['estado'] == 'Reservado':
+                if inmueble['zona'] == 'A':
+                    precio = (inmueble['metros'] * 100 + inmueble['habitaciones'] * 500 + inmueble['garaje'] * 1500) * (1-(year - inmueble['año'])/100)
+                elif inmueble['zona'] == 'B':
+                    precio = (inmueble['metros'] * 100 + inmueble['habitaciones'] * 500 + inmueble['garaje'] * 1500) * (1-(year - inmueble['año'])/100) * 1.5
+                elif inmueble['zona'] == 'C':
+                    precio = (inmueble['metros'] * 100 + inmueble['habitaciones'] * 500 + inmueble['garaje'] * 1500) * (1-(year - inmueble['año'])/100) * 2
+                if precio <= presupuesto_disponible:
+                    inmuebles_disponibles_cliente.append((inmueble, precio))
+        return inmuebles_disponibles_cliente
+    inmuebles_disponibles_cliente = precios_inmuebles(lista_total_inmuebles, presupuesto_disponible)
+    if len(inmuebles_disponibles_cliente) == 0:
+        print("No hay inmuebles disponibles para el presupuesto ingresado")
+    else:
+        print("Los inmuebles disponibles para el presupuesto ingresado son: ")
+        for inmueble in inmuebles_disponibles_cliente:
+            print(f"{inmueble} Con un valor de ${inmueble[1]}")
 
-inmuebles_disponibles_cliente = precios_inmuebles(lista_total_inmuebles, presupuesto_disponible)
-if len(inmuebles_disponibles_cliente) == 0:
-    print("No hay inmuebles disponibles para el presupuesto ingresado")
-else:
-    print(f"Los inmuebles disponibles para el presupuesto ingresado son: {inmuebles_disponibles_cliente}")
+print(f"Gracias por utilizar el sistema {empleado}, hasta pronto! :)")
