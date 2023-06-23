@@ -3,7 +3,6 @@ class Vehiculo:
         self.color = color
         self.ruedas = ruedas
 
-
 class Coche(Vehiculo):
     def __init__(self, velocidad, cilindrada, color, ruedas):
         super().__init__(color, ruedas)
@@ -49,6 +48,7 @@ def catalogar(lista_vehiculos, ruedas=None):
         for atributo, valor in vars(vehiculo).items():
             print(f"{atributo}: {valor}")
         print()
+
 
 catalogar(vehiculos, 0)
 catalogar(vehiculos, 2)
